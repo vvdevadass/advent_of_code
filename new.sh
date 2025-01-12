@@ -1,9 +1,9 @@
 #!/bin/bash
-template="$1"
-new="$2"
+template="p20xx_template"
+new="$1"
 
 if test ! -d $template -o -z "$new" -o -e "$new"; then
-	echo "Usage: new.sh p2016_01 p2016_02"
+	echo "Usage: new.sh p2024_01"
 	exit 1
 fi
 
