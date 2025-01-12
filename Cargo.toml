@@ -1,6 +1,7 @@
 [workspace]
 resolver = "2"
 members = [
+    "p2024_02",
     "p2024_01",
     "p20xx_template",
 ]
