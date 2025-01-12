@@ -9,6 +9,7 @@ fi
 
 set -x
 cp -fr ./$template ./$new
-gfind ./$new -type f -printf "gsed -i \"s/$template/$new/g\" %p\n" | bash
-gsed -i "/members/ a \    \"$new\"," ./Cargo.toml
+find ./$new -type f -printf "sed -i \"s/$template/$new/g\" %p\n" | bash
+# sed -i "s/$template/$new/g" ./$new/Cargo.toml
+sed -i "/members/ a \    \"$new\"," ./Cargo.toml
 git add .
