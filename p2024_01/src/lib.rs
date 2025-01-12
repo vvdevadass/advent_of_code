@@ -1,3 +1,4 @@
+
 pub fn part_a(input: &str) -> i64 {
     let mut v1: Vec<i64> = Vec::new();
     let mut v2: Vec<i64> = Vec::new();
@@ -21,6 +22,28 @@ pub fn part_a(input: &str) -> i64 {
     result
 }
 
+pub fn part_b(input: &str) -> i64 {
+    let mut v1: Vec<i64> = Vec::new();
+    let mut v2: Vec<i64> = Vec::new();
+    let mut result = 0;
+    for line in input.trim().split('\n') {
+        //
+        let strings: Vec<_> = line.split(' ').collect();
+        let v : Vec<i64> = strings.iter().flat_map(|x| x.parse()).collect();
+        v1.push(v[0]);
+        v2.push(v[1]);
+        // result += (vec[i][0] - vec[i][1]).abs();
+    }
+    v1.sort();
+    v2.sort();
+    for a in v1 {
+        let r = v2.iter().filter(|&&x| x == a).count();
+        result += a*(r as i64);
+    }
+
+    result
+}
+
 #[cfg(test)]
 mod tests {
     // #[test]
@@ -31,5 +54,10 @@ mod tests {
     #[test]
     fn part_a() {
         assert_eq!(super::part_a(include_str!("input.txt")), 2378066);
+    }
+
+    #[test]
+    fn part_b() {
+        assert_eq!(super::part_b(include_str!("input.txt")), 18934359);
     }
 }
