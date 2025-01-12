@@ -1,4 +1,5 @@
 [workspace]
 members = [
-    "p20xx_template",
+    "p2024_01"
+    #"p20xx_template",
 ]
