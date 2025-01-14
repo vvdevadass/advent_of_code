@@ -1,0 +1,8 @@
+[package]
+name = "p2024_03"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+polars = { version = "0.45.1", features = ["lazy"] }
+regex = "1.11.1"
