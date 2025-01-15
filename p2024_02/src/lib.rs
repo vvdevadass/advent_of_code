@@ -88,7 +88,7 @@ pub fn part2(input: &str) -> i64 {
 mod tests {
     #[test]
     fn part1() {
-        assert_eq!(super::part2(include_str!("sample.txt")), 2);
+        assert_eq!(super::part1(include_str!("sample.txt")), 2);
         assert_eq!(super::part1(include_str!("input.txt")), 534);
     }
 
