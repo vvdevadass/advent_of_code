@@ -175,6 +175,6 @@ mod tests {
     #[test]
     fn part_b() {
         assert_eq!(super::part_b(include_str!("sample.txt")), 9);
-        assert_eq!(super::part_b(include_str!("input.txt")), 0);
+        assert_eq!(super::part_b(include_str!("input.txt")), 1850);
     }
 }
