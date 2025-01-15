@@ -1,7 +1,8 @@
 pub fn part_a(input: &str) -> i64 {
     let mut arr: Vec<char> = Vec::new();
-    let mut width: usize = 0;
-    let mut height: usize = 0;
+    let lines : Vec<&str> = input.lines().collect();
+    let width: usize = lines.first().unwrap().len();
+    let height: usize = lines.len();
     let mut res = 0;
     let mut s: String;
 
@@ -17,13 +18,9 @@ pub fn part_a(input: &str) -> i64 {
     ];
 
     for line in input.trim().split('\n') {
-        if width == 0 {
-            width = line.len();
-        }
         for c in line.chars() {
             arr.push(c);
         }
-        height+=1;
     }
 
     for (i,&a) in arr.iter().enumerate() {
