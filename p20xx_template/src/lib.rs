@@ -1,11 +1,11 @@
-pub fn part_a(input: &str) -> i64 {
+pub fn part1(input: &str) -> i64 {
     for line in input.trim().split('\n') {
         //
     }
     0
 }
 
-pub fn part_b(input: &str) -> i64 {
+pub fn part2(input: &str) -> i64 {
     for line in input.trim().split('\n') {
         //
     }
@@ -16,14 +16,14 @@ pub fn part_b(input: &str) -> i64 {
 mod tests {
 
     #[test]
-    fn part_a() {
-        assert_eq!(super::part_a(include_str!("sample.txt")), 0);
-        assert_eq!(super::part_a(include_str!("input.txt")), 0);
+    fn part1() {
+        assert_eq!(super::part1(include_str!("sample.txt")), 0);
+        assert_eq!(super::part1(include_str!("input.txt")), 0);
     }
 
     #[test]
-    fn part_b() {
-        assert_eq!(super::part_a(include_str!("sample.txt")), 0);
-        assert_eq!(super::part_b(include_str!("input.txt")), 0);
+    fn part2() {
+        assert_eq!(super::part2(include_str!("sample.txt")), 0);
+        assert_eq!(super::part2(include_str!("input.txt")), 0);
     }
 }

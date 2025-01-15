@@ -50,7 +50,7 @@ fn safety_check(report: &Vec<i64> ) -> bool {
     safe
 }
 
-pub fn part_a(input: &str) -> i64 {
+pub fn part1(input: &str) -> i64 {
     let mut res = 0;
     for line in input.trim().split('\n') {
         let strings: Vec<&str> = line.split(' ').collect();
@@ -62,7 +62,7 @@ pub fn part_a(input: &str) -> i64 {
     res
 }
 
-pub fn part_b(input: &str) -> i64 {
+pub fn part2(input: &str) -> i64 {
     let mut res = 0;
     for line in input.trim().split('\n') {
         let strings: Vec<&str> = line.split(' ').collect();
@@ -87,14 +87,14 @@ pub fn part_b(input: &str) -> i64 {
 #[cfg(test)]
 mod tests {
     #[test]
-    fn part_a() {
-        assert_eq!(super::part_b(include_str!("sample.txt")), 2);
-        assert_eq!(super::part_a(include_str!("input.txt")), 534);
+    fn part1() {
+        assert_eq!(super::part2(include_str!("sample.txt")), 2);
+        assert_eq!(super::part1(include_str!("input.txt")), 534);
     }
 
     #[test]
-    fn part_b() {
-        assert_eq!(super::part_b(include_str!("sample.txt")), 4);
-        assert_eq!(super::part_b(include_str!("input.txt")), 577);
+    fn part2() {
+        assert_eq!(super::part2(include_str!("sample.txt")), 4);
+        assert_eq!(super::part2(include_str!("input.txt")), 577);
     }
 }

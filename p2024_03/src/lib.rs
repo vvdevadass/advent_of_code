@@ -17,7 +17,7 @@ fn mult(line: &str) -> i64 {
     res
 }
 
-pub fn part_a(input: &str) -> i64 {
+pub fn part1(input: &str) -> i64 {
     let mut res = 0;
     for line in input.trim().split('\n') {
         res += mult(line);
@@ -25,7 +25,7 @@ pub fn part_a(input: &str) -> i64 {
     res
 }
 
-pub fn part_b(input: &str) -> i64 {
+pub fn part2(input: &str) -> i64 {
     let re = Regex::new(r"do\(\)|don't\(\)|mul\([0-9]{1,3},[0-9]{1,3}\)").unwrap();
     let mut res = 0;
     let mut is_enabled = true;
@@ -51,14 +51,14 @@ pub fn part_b(input: &str) -> i64 {
 mod tests {
 
     #[test]
-    fn part_a() {
-        assert_eq!(super::part_a(include_str!("sample.txt")), 161);
-        assert_eq!(super::part_a(include_str!("input.txt")), 171183089);
+    fn part1() {
+        assert_eq!(super::part1(include_str!("sample.txt")), 161);
+        assert_eq!(super::part1(include_str!("input.txt")), 171183089);
     }
 
     #[test]
-    fn part_b() {
-        assert_eq!(super::part_b(include_str!("sample.txt")), 48);
-        assert_eq!(super::part_b(include_str!("input.txt")), 63866497);
+    fn part2() {
+        assert_eq!(super::part2(include_str!("sample.txt")), 48);
+        assert_eq!(super::part2(include_str!("input.txt")), 63866497);
     }
 }

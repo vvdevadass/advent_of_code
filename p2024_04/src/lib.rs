@@ -1,4 +1,4 @@
-pub fn part_a(input: &str) -> i64 {
+pub fn part1(input: &str) -> i64 {
     let mut arr: Vec<char> = Vec::new();
     let lines : Vec<&str> = input.lines().collect();
     let width: usize = lines.first().unwrap().len();
@@ -132,7 +132,7 @@ pub fn part_a(input: &str) -> i64 {
     res
 }
 
-pub fn part_b(input: &str) -> i64 {
+pub fn part2(input: &str) -> i64 {
     let lines : Vec<&str> = input.trim().lines().collect();
     let width: usize = lines.first().unwrap().len();
     let height: usize = lines.len();
@@ -167,14 +167,14 @@ pub fn part_b(input: &str) -> i64 {
 mod tests {
 
     #[test]
-    fn part_a() {
-        assert_eq!(super::part_a(include_str!("sample.txt")), 18);
-        assert_eq!(super::part_a(include_str!("input.txt")), 2573);
+    fn part1() {
+        assert_eq!(super::part1(include_str!("sample.txt")), 18);
+        assert_eq!(super::part1(include_str!("input.txt")), 2573);
     }
 
     #[test]
-    fn part_b() {
-        assert_eq!(super::part_b(include_str!("sample.txt")), 9);
-        assert_eq!(super::part_b(include_str!("input.txt")), 1850);
+    fn part2() {
+        assert_eq!(super::part2(include_str!("sample.txt")), 9);
+        assert_eq!(super::part2(include_str!("input.txt")), 1850);
     }
 }
