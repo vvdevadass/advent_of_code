@@ -25,7 +25,6 @@ pub fn part_a(input: &str) -> i64 {
         }
         height+=1;
     }
-    println!("{height},{width}");
 
     for (i,&a) in arr.iter().enumerate() {
         if a == 'X' {
