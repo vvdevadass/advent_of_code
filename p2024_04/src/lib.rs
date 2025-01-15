@@ -133,98 +133,30 @@ pub fn part_a(input: &str) -> i64 {
 }
 
 pub fn part_b(input: &str) -> i64 {
-    let mut arr: Vec<char> = Vec::new();
-    let mut width: usize = 0;
-    let mut height: usize = 0;
+    let lines : Vec<&str> = input.trim().lines().collect();
+    let width: usize = lines.first().unwrap().len();
+    let height: usize = lines.len();
+    let target = "MAS";
+    let target_rev = "SAM";
     let mut res = 0;
 
-    let dirs = [
-        "vert M left",
-        "vert M right",
-        "horz M left" ,
-        "horz M right"
-    ];
+    for row in 0..(height-2) {
+        for col in 0..(width-2) {
+            let mut diag1 = String::new();
+            let mut diag2 = String::new();
 
-    for line in input.trim().split('\n') {
-        if width == 0 {
-            width = line.len();
-        }
-        for c in line.chars() {
-            arr.push(c);
-        }
-        height+=1;
-    }
+            for i in 0..3 {
+                let char = lines[row+i].chars().nth(col+i).unwrap();
+                diag1.push(char);
 
-    for (i,&a) in arr.iter().enumerate() {
-        if a == 'M' {
-            let row: i32 = i as i32 /width as i32;
-            let col: i32 = i as i32 %width as i32;
-            let h = height as i32;
-            let w = width as i32;
-            let mut j: i32; // second M
-            let mut k: i32; // A
-            let mut l: i32; // second S
-            let mut n: i32; // first S
-            // println!("{h},{w}");
+                let char = lines[row+i].chars().nth(col+2-i).unwrap();
+                diag2.push(char);
+            }
 
-            for dir in dirs {
-                // update j,k,l based on direction
-                match dir {
-                    "diag left up"  => {
-                        if row - 2 >= 0 && col - 2 >= 0 {
-                            j = (row)*w + col-2;
-                            k = (row - 1)*w + col-1;
-                            l = (row - 2)*w + col-2;
-                            n = (row - 2)*w + col;
-                        }
-                        else {
-                            continue;
-                        }
-                    }
-                    "diag left down"  => {
-                        if row + 2 < h && col - 2 >= 0 {
-                            j = (row + 2)*w + col;
-                            k = (row + 1)*w + col-1;
-                            l = (row + 2)*w + col-2;
-                            n = (row)*w + col-2;
-                        }
-                        else {
-                            continue;
-                        }
-                    }
-                    "diag right up"  => {
-                        if row - 2 >= 0 && col + 2 < w {
-                            j = (row)*w + col+2;
-                            k = (row - 1)*w + col+1;
-                            l = (row - 2)*w + col+2;
-                            n = (row - 2)*w + col;
-                        }
-                        else {
-                            continue;
-                        }
-                    }
-                    "diag right down" => {
-                        if row + 2 < h && col + 2 < w {
-                            // down
-                            j = (row+2)*w + col;
-                            k = (row+1)*w + col+1;
-                            l = (row+2)*w + col+2;
-                            n = (row)*w + col+2;
-                        }
-                        else {
-                            continue;
-                        }
-                    }
-                    _ => {
-                        continue;
-                    }
-                }
-
-                let s = format!("{}{}{}", a, arr[k as usize], arr[l as usize]);
-                let s2 = format!("{}{}{}", arr[j as usize], arr[k as usize], arr[n as usize]);
-                if s.as_str() == "MAS" && s2.as_str() == "MAS" {
-                    res+=1;
-                }
+            if ( diag1.as_str() == target || diag1.as_str() == target_rev ) &&
+               ( diag2.as_str() == target_rev || diag2.as_str() == target )
+            {
+                res+=1;
             }
         }
     }
